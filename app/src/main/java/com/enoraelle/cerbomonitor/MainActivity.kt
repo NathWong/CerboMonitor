@@ -1,4 +1,5 @@
 package com.enoraelle.cerbomonitor
+
 import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,7 +10,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.work.*
+import com.enoraelle.cerbomonitor.ui.MainScreen
 import com.enoraelle.cerbomonitor.ui.theme.CerboMonitorTheme
+import com.enoraelle.cerbomonitor.worker.TankUpdateWorker
 import java.util.concurrent.TimeUnit
 
 class MainActivity : ComponentActivity() {
@@ -40,7 +43,7 @@ class MainActivity : ComponentActivity() {
             .build()
 
         WorkManager.getInstance(context).enqueueUniquePeriodicWork(
-            "CerboTankUpdateWork",
+            Constants.WORKER_NAME,
             ExistingPeriodicWorkPolicy.KEEP,
             tankWorkRequest
         )

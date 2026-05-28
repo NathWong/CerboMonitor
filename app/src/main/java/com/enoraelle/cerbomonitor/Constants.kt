@@ -10,4 +10,8 @@ object Constants {
 
     const val DEFAULT_IP = "192.168.0.100"
     const val DEFAULT_TANK_ID = 20
+
+    const val WORKER_NAME = "CerboTankUpdateWork"
+
+    const val DEFAULT_MODBUS_PORT = 502
 }
